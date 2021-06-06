@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HeadlineView" customModule="DInDinnTest" customModuleProvider="target">
+            <connections>
+                <outlet property="descriptionLabel" destination="HMS-Mv-zQL" id="bBC-k6-F58"/>
+                <outlet property="imageView" destination="ggA-OZ-mYR" id="I10-7T-mWQ"/>
+                <outlet property="titleLabel" destination="kUq-JJ-zw5" id="tVv-Oz-EmM"/>
+                <outlet property="view" destination="iN0-l3-epB" id="xeH-hV-jiG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" insetsLayoutMarginsFromSafeArea="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ggA-OZ-mYR">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="r0W-xc-7Gf">
+                    <rect key="frame" x="20" y="736" width="374" height="100"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product Presentation" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="20" translatesAutoresizingMaskIntoConstraints="NO" id="kUq-JJ-zw5">
+                            <rect key="frame" x="0.0" y="0.0" width="374" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Xri-M3-fOU"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="28"/>
+                            <color key="textColor" systemColor="systemRedColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas varius tortor nibh, sit amet tempor nibh finibus et." lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HMS-Mv-zQL">
+                            <rect key="frame" x="0.0" y="50" width="374" height="50"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="EeB-Qm-1AF"/>
+                    </constraints>
+                </stackView>
+            </subviews>
+            <color key="backgroundColor" name="appBackground"/>
+            <constraints>
+                <constraint firstItem="ggA-OZ-mYR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="9tg-bd-RR0"/>
+                <constraint firstAttribute="bottom" secondItem="r0W-xc-7Gf" secondAttribute="bottom" constant="60" id="AnN-jc-z68"/>
+                <constraint firstItem="r0W-xc-7Gf" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="Qw2-fs-Mih"/>
+                <constraint firstAttribute="trailing" secondItem="ggA-OZ-mYR" secondAttribute="trailing" id="UpV-e2-Ff6"/>
+                <constraint firstAttribute="bottom" secondItem="ggA-OZ-mYR" secondAttribute="bottom" id="W5F-q1-mqw"/>
+                <constraint firstAttribute="trailing" secondItem="r0W-xc-7Gf" secondAttribute="trailing" constant="20" id="fXv-5H-ZRz"/>
+                <constraint firstItem="ggA-OZ-mYR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="j9I-Lw-vG4"/>
+            </constraints>
+            <point key="canvasLocation" x="68" y="83"/>
+        </view>
+    </objects>
+    <resources>
+        <namedColor name="appBackground">
+            <color red="0.96470588235294119" green="0.98431372549019602" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
