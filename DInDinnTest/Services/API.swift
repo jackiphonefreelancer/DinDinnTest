@@ -8,8 +8,7 @@
 import Moya
 
 enum API {
-    case fetchTopHeadlines
-    case fetchNewsBySource(source: String)
+    case fetchTopHeadlines(country: String)
 }
 
 extension API: TargetType {
@@ -28,8 +27,6 @@ extension API: TargetType {
         switch self {
         case .fetchTopHeadlines:
             return "top-headlines"
-        case .fetchNewsBySource:
-            return "top-headlines"
         }
     }
     
@@ -39,14 +36,9 @@ extension API: TargetType {
     
     var task: Task {
         switch self {
-        case .fetchTopHeadlines:
+        case .fetchTopHeadlines(let country):
             return .requestParameters(parameters: ["apiKey": APIConfiguration.apiKey,
-                                                   "country": "us"],
-                                      encoding: URLEncoding.queryString)
-        case .fetchNewsBySource(let source):
-            return .requestParameters(parameters: ["apiKey": APIConfiguration.apiKey,
-                                                   "country": "us",
-                                                   "source" : source],
+                                                   "country": country],
                                       encoding: URLEncoding.queryString)
         }
     }

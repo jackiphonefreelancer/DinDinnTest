@@ -12,29 +12,28 @@ protocol ArticleListViewToPresenterProtocol {
     var interactor: ArticleListPresenterToInteractorProtocol? {get set}
     var router: ArticleListPresenterToRouterProtocol? {get set}
     
-    func fetchTopHeadlines()
-    func fetchNewsBySource(source: String)
-    func showArticleDetailScreen()
+    func selectCountry(index: Int)
+    func showArticleDetailScreen(article: Article)
 }
 
 protocol ArticleListPresenterToViewProtocol {
     func showFetchingTopHeadlinesSuccess(result: ArticleListResult)
-    func showFetchingNewsBySourceSuccess(result: ArticleListResult)
     func showFetchingFailure()
+    func showLoading()
+    func hideLoading()
 }
 
 protocol ArticleListPresenterToRouterProtocol {
     static func createModule()-> ArticleListViewController
-    func showArticleDetailScreen()
+    func showArticleDetailScreen(article: Article)
 }
 
 protocol ArticleListPresenterToInteractorProtocol {
     var presenter: ArticleListInteractorToPresenterProtocol? {get set}
-    func fetchTopHeadlines()
+    func fetchTopHeadlines(country: String)
 }
 
 protocol ArticleListInteractorToPresenterProtocol {
     func fetchTopHeadlinesSuccess(result: ArticleListResult)
-    func fetchingNewsBySourceSuccess(result: ArticleListResult)
     func fetchFailure()
 }

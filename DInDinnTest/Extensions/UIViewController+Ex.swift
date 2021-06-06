@@ -32,11 +32,11 @@ extension UIViewController {
 
 // MARK: - Loading Dialog
 extension UIViewController {
-    func showLoading() {
+    func showLoadingOverlay() {
         LoadingOverlay.shared.showLoading(in: self)
     }
     
-    func hideLoading() {
+    func hideLoadingOverlay() {
         LoadingOverlay.shared.hideLoading()
     }
 }

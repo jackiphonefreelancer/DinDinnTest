@@ -17,12 +17,11 @@ class ArticleListInteractor {
 
 // MARK: - PresenterToInteractorProtocol
 extension ArticleListInteractor: ArticleListPresenterToInteractorProtocol {
-    func fetchTopHeadlines() {
-        ApiProvider.shared.fetchTopHeadlines()
+    func fetchTopHeadlines(country: String) {
+        ApiProvider.shared.fetchTopHeadlines(country: country)
             .observe(on: MainScheduler.instance)
             .subscribe(onNext: { [weak self] result in
                 self?.presenter?.fetchTopHeadlinesSuccess(result: result)
-                self?.presenter?.fetchingNewsBySourceSuccess(result: result)
             }, onError: { [weak self] _ in
                 self?.presenter?.fetchFailure()
             })

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8D0D36CF266CE51D00414921 /* ArticleDetailProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D36CE266CE51D00414921 /* ArticleDetailProtocol.swift */; };
+		8D0D36D1266CE53900414921 /* ArticleDetailRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D36D0266CE53900414921 /* ArticleDetailRouter.swift */; };
+		8D0D36D3266CE54C00414921 /* ArticleDetailEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D36D2266CE54C00414921 /* ArticleDetailEntity.swift */; };
+		8D0D36D5266CE56000414921 /* ArticleDetailPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D36D4266CE56000414921 /* ArticleDetailPresenter.swift */; };
+		8D0D36D7266CE57400414921 /* ArticleDetailInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D36D6266CE57400414921 /* ArticleDetailInteractor.swift */; };
+		8D0D36D9266CE58700414921 /* ArticleDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D0D36D8266CE58700414921 /* ArticleDetailViewController.swift */; };
 		8DEA65E2266B1756005CAB20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA65E1266B1756005CAB20 /* AppDelegate.swift */; };
 		8DEA65E4266B1756005CAB20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA65E3266B1756005CAB20 /* SceneDelegate.swift */; };
 		8DEA65E6266B1756005CAB20 /* ArticleListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DEA65E5266B1756005CAB20 /* ArticleListViewController.swift */; };
@@ -39,6 +45,12 @@
 /* Begin PBXFileReference section */
 		3421AD2642F641826A937D87 /* Pods_DInDinnTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DInDinnTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A51B5CD5BEEAE7614C8D7C2 /* Pods-DInDinnTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DInDinnTest.release.xcconfig"; path = "Target Support Files/Pods-DInDinnTest/Pods-DInDinnTest.release.xcconfig"; sourceTree = "<group>"; };
+		8D0D36CE266CE51D00414921 /* ArticleDetailProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleDetailProtocol.swift; path = ../../../../DinDinnTest/DInDinnTest/Screens/ArticleDetail/ArticleDetailProtocol.swift; sourceTree = "<group>"; };
+		8D0D36D0266CE53900414921 /* ArticleDetailRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleDetailRouter.swift; path = ../../../../DinDinnTest/DInDinnTest/Screens/ArticleDetail/ArticleDetailRouter.swift; sourceTree = "<group>"; };
+		8D0D36D2266CE54C00414921 /* ArticleDetailEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleDetailEntity.swift; path = ../../../../DinDinnTest/DInDinnTest/Screens/ArticleDetail/ArticleDetailEntity.swift; sourceTree = "<group>"; };
+		8D0D36D4266CE56000414921 /* ArticleDetailPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleDetailPresenter.swift; path = ../../../../DinDinnTest/DInDinnTest/Screens/ArticleDetail/ArticleDetailPresenter.swift; sourceTree = "<group>"; };
+		8D0D36D6266CE57400414921 /* ArticleDetailInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleDetailInteractor.swift; path = ../../../../DinDinnTest/DInDinnTest/Screens/ArticleDetail/ArticleDetailInteractor.swift; sourceTree = "<group>"; };
+		8D0D36D8266CE58700414921 /* ArticleDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArticleDetailViewController.swift; path = ../../../../DinDinnTest/DInDinnTest/Screens/ArticleDetail/ArticleDetailViewController.swift; sourceTree = "<group>"; };
 		8DEA65DE266B1756005CAB20 /* DInDinnTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DInDinnTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DEA65E1266B1756005CAB20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DEA65E3266B1756005CAB20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +94,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8D0D36CD266CE4F100414921 /* ArticleDetail */ = {
+			isa = PBXGroup;
+			children = (
+				8D0D36D8266CE58700414921 /* ArticleDetailViewController.swift */,
+				8D0D36D6266CE57400414921 /* ArticleDetailInteractor.swift */,
+				8D0D36D4266CE56000414921 /* ArticleDetailPresenter.swift */,
+				8D0D36D2266CE54C00414921 /* ArticleDetailEntity.swift */,
+				8D0D36D0266CE53900414921 /* ArticleDetailRouter.swift */,
+				8D0D36CE266CE51D00414921 /* ArticleDetailProtocol.swift */,
+			);
+			path = ArticleDetail;
+			sourceTree = "<group>";
+		};
 		8DEA65D5266B1756005CAB20 = {
 			isa = PBXGroup;
 			children = (
@@ -136,6 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				8DEA6610266B5035005CAB20 /* CommonUI */,
+				8D0D36CD266CE4F100414921 /* ArticleDetail */,
 				8DEA65FA266B1BBA005CAB20 /* ArticleList */,
 			);
 			path = Screens;
@@ -340,17 +366,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DEA662C266C7533005CAB20 /* UISegmentedControl+Ex.swift in Sources */,
+				8D0D36D5266CE56000414921 /* ArticleDetailPresenter.swift in Sources */,
 				8DEA6614266BB24A005CAB20 /* UIImageView+Ex.swift in Sources */,
+				8D0D36D1266CE53900414921 /* ArticleDetailRouter.swift in Sources */,
 				8DEA65E6266B1756005CAB20 /* ArticleListViewController.swift in Sources */,
 				8DEA662A266C526B005CAB20 /* AppPageControl.swift in Sources */,
 				8DEA6618266BB3EC005CAB20 /* Reuseable.swift in Sources */,
 				8DEA6616266BB3AD005CAB20 /* NibInstanceable.swift in Sources */,
 				8DEA6606266B2CC8005CAB20 /* UIViewController+Ex.swift in Sources */,
+				8D0D36D3266CE54C00414921 /* ArticleDetailEntity.swift in Sources */,
+				8D0D36CF266CE51D00414921 /* ArticleDetailProtocol.swift in Sources */,
 				8DEA6623266BB81D005CAB20 /* DateFormat.swift in Sources */,
 				8DEA660F266B32FE005CAB20 /* ApiProvider.swift in Sources */,
 				8DEA6600266B1C91005CAB20 /* ArticleListEntity.swift in Sources */,
 				8DEA6602266B1CA6005CAB20 /* ArticleListRouter.swift in Sources */,
 				8DEA6608266B2FDA005CAB20 /* API.swift in Sources */,
+				8D0D36D7266CE57400414921 /* ArticleDetailInteractor.swift in Sources */,
+				8D0D36D9266CE58700414921 /* ArticleDetailViewController.swift in Sources */,
 				8DEA65FE266B1C78005CAB20 /* ArticleListPresenter.swift in Sources */,
 				8DEA661B266BB432005CAB20 /* ArticleTableViewCell.swift in Sources */,
 				8DEA660D266B3033005CAB20 /* APIConfiguration.swift in Sources */,

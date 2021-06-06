@@ -15,16 +15,20 @@ class ArticleListPresenter {
 
 // MARK: - ViewToPresenterProtocol
 extension ArticleListPresenter: ArticleListViewToPresenterProtocol {
-    func fetchTopHeadlines() {
-        interactor?.fetchTopHeadlines()
+    func selectCountry(index: Int) {
+        switch index {
+        case 0:
+            interactor?.fetchTopHeadlines(country: "us")
+        case 1:
+            interactor?.fetchTopHeadlines(country: "cn")
+        default:
+            interactor?.fetchTopHeadlines(country: "jp")
+        }
+        view?.showLoading()
     }
     
-    func fetchNewsBySource(source: String) {
-        
-    }
-    
-    func showArticleDetailScreen() {
-        router?.showArticleDetailScreen()
+    func showArticleDetailScreen(article: Article) {
+        router?.showArticleDetailScreen(article: article)
     }
 }
 
@@ -32,14 +36,12 @@ extension ArticleListPresenter: ArticleListViewToPresenterProtocol {
 extension ArticleListPresenter: ArticleListInteractorToPresenterProtocol{
     func fetchTopHeadlinesSuccess(result: ArticleListResult) {
         view?.showFetchingTopHeadlinesSuccess(result: result)
-    }
-    
-    func fetchingNewsBySourceSuccess(result: ArticleListResult) {
-        view?.showFetchingNewsBySourceSuccess(result: result)
+        view?.hideLoading()
     }
     
     func fetchFailure() {
         view?.showFetchingFailure()
+        view?.hideLoading()
     }
 }
 

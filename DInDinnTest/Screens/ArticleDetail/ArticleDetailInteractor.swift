@@ -6,3 +6,11 @@
 //
 
 import Foundation
+
+class ArticleDetailInteractor {
+    var presenter: ArticleDetailInteractorToPresenterProtocol?
+}
+
+// MARK: - PresenterToInteractorProtocol
+extension ArticleDetailInteractor: ArticleDetailPresenterToInteractorProtocol {
+}

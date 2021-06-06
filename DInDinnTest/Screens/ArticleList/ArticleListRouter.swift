@@ -6,9 +6,10 @@
 //
 
 import Foundation
+import UIKit
 
 class ArticleListRouter {
-    
+
 }
 
 // MARK: - PresenterToRouterProtocol
@@ -29,11 +30,10 @@ extension ArticleListRouter: ArticleListPresenterToRouterProtocol {
         return view
     }
     
-    func showArticleDetailScreen() {
-//        let liveVideoModule = LiveVideoRouter.createModule()
-//        let nav = UINavigationController()
-//        nav.viewControllers = [liveVideoModule]
-//        nav.modalPresentationStyle = .overFullScreen
-//        navigationController.present(nav,animated: false)
+    func showArticleDetailScreen(article: Article) {
+        let view = ArticleDetailRouter.createModule(article: article)
+        let nav = UINavigationController(rootViewController: view)
+        view.modalPresentationStyle = .fullScreen
+        UIApplication.shared.keyWindow?.rootViewController?.present(nav, animated: true, completion: nil)
     }
 }

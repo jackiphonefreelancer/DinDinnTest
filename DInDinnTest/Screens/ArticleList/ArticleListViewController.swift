@@ -19,17 +19,18 @@ class ArticleListViewController: UIViewController {
     private var pageViewController : UIPageViewController?
     private var currentPage = 0
     
-    var source: String = ""
     var headerlinesResult: ArticleListResult?
-    var newsBySourceResult: ArticleListResult?
-    
     var presentor: ArticleListViewToPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        showLoading()
-        presentor?.fetchTopHeadlines()
+        presentor?.selectCountry(index: 0)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     func setupView() {
@@ -58,22 +59,28 @@ class ArticleListViewController: UIViewController {
         segmentControl.applyDefaultStyle()
     }
     
+    @IBAction func didSegmentChange() {
+        presentor?.selectCountry(index: segmentControl.selectedSegmentIndex)
+    }
+    
+    var featuredHeadlinesArtilcles: [Article] {
+        guard let articles = headerlinesResult?.articles else {
+            return []
+        }
+        let array = Array(articles.prefix(3))
+        return array
+    }
+    
     var headlinesArtilcles: [Article] {
-        return headerlinesResult?.articles ?? []
-    }
-    
-    var newsArticles: [Article] {
-        return newsBySourceResult?.articles ?? []
-    }
-    
-    var sources: [String: String] {
-        return ["us": "US",
-            "sg": "Singapore",
-            "jp": "Japan"]
+        guard let articles = headerlinesResult?.articles, articles.count >= 3 else {
+            return []
+        }
+        let array = Array(articles[3..<articles.count])
+        return array
     }
     
     func reloadCarousel() {
-        pageControl.numberOfPages = headlinesArtilcles.count
+        pageControl.numberOfPages = featuredHeadlinesArtilcles.count
         pageControl.currentPage = 0
         carouselView.bringSubviewToFront(pageControl)
         if let currentContentView = viewControllerAtIndex(index: 0) {
@@ -133,12 +140,12 @@ extension ArticleListViewController: UIPageViewControllerDataSource, UIPageViewC
     }
     
     func viewControllerAtIndex(index: Int) -> HeadlineView? {
-        if headlinesArtilcles.count == 0 || index >= headlinesArtilcles.count {
+        if featuredHeadlinesArtilcles.count == 0 || index >= featuredHeadlinesArtilcles.count {
             return nil
         }
         
         // Create a new view controller and pass suitable data.
-        let headline = headlinesArtilcles[index]
+        let headline = featuredHeadlinesArtilcles[index]
         let contentView = HeadlineView(pageIndex: index, headline: headline)
         return contentView
     }
@@ -151,14 +158,19 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return newsArticles.count
+        return headlinesArtilcles.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ArticleTableViewCell", for: indexPath) as! ArticleTableViewCell
-        let article = newsArticles[indexPath.item]
+        let article = headlinesArtilcles[indexPath.item]
         cell.reloadCell(article: article)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let article = headlinesArtilcles[indexPath.item]
+        presentor?.showArticleDetailScreen(article: article)
     }
 }
 
@@ -166,20 +178,21 @@ extension ArticleListViewController: UITableViewDelegate, UITableViewDataSource 
 extension ArticleListViewController: ArticleListPresenterToViewProtocol{
     func showFetchingTopHeadlinesSuccess(result: ArticleListResult) {
         headerlinesResult = result
-        hideLoading()
+        heightConstraint.constant = ArticleTableViewCell.cellHeight * CGFloat(headlinesArtilcles.count)
         reloadCarousel()
-    }
-    
-    func showFetchingNewsBySourceSuccess(result: ArticleListResult) {
-        newsBySourceResult = result
-        hideLoading()
-        heightConstraint.constant = ArticleTableViewCell.cellHeight * CGFloat(newsArticles.count)
         tableView.reloadData()
     }
     
     func showFetchingFailure() {
-        hideLoading()
         showGeneralError()
+    }
+    
+    func showLoading() {
+        showLoadingOverlay()
+    }
+    
+    func hideLoading() {
+        hideLoadingOverlay()
     }
 }
 

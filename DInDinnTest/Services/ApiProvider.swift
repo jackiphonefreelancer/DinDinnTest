@@ -20,9 +20,9 @@ class ApiProvider {
     let disposable = Disposables.create()
     var provider = MoyaProvider<API>(plugins: [NetworkLoggerPlugin()])
     
-    func fetchTopHeadlines() -> Observable<ArticleListResult> {
+    func fetchTopHeadlines(country: String) -> Observable<ArticleListResult> {
         return Observable.create { o -> Disposable in
-            self.provider.request(.fetchTopHeadlines) { response in
+            self.provider.request(.fetchTopHeadlines(country: country)) { response in
                 switch response {
                 case let .success(result):
                     if let jsonString = String(data: result.data, encoding: .utf8),

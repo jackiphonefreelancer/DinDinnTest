@@ -11,7 +11,7 @@
         <!--Article List View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="ArticleListViewController" id="BYZ-38-t0r" customClass="ArticleListViewController" customModule="DInDinnTest" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ArticleListViewController" definesPresentationContext="YES" modalPresentationStyle="overFullScreen" id="BYZ-38-t0r" customClass="ArticleListViewController" customModule="DInDinnTest" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,16 +20,16 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="9Fs-qu-z5t">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="876"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="776"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Cr5-Ob-QNn">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="660"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="560"/>
                                                 <subviews>
                                                     <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" translatesAutoresizingMaskIntoConstraints="NO" id="umm-Hd-w1a">
-                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="600"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
                                                         <subviews>
                                                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" hidesForSinglePage="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qhJ-JR-drD" customClass="AppPageControl" customModule="DInDinnTest" customModuleProvider="target">
-                                                                <rect key="frame" x="185" y="570" width="44.5" height="0.0"/>
+                                                                <rect key="frame" x="185" y="470" width="44.5" height="0.0"/>
                                                                 <color key="pageIndicatorTintColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="currentPageIndicatorTintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <userDefinedRuntimeAttributes>
@@ -38,33 +38,36 @@
                                                                 </userDefinedRuntimeAttributes>
                                                             </pageControl>
                                                         </subviews>
-                                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="600" id="hFq-MW-yD2"/>
+                                                            <constraint firstAttribute="height" constant="500" id="hFq-MW-yD2"/>
                                                             <constraint firstAttribute="bottom" secondItem="qhJ-JR-drD" secondAttribute="bottom" constant="30" id="mjo-4x-DFP"/>
                                                             <constraint firstItem="qhJ-JR-drD" firstAttribute="centerX" secondItem="umm-Hd-w1a" secondAttribute="centerX" id="srf-ut-kgz"/>
                                                         </constraints>
                                                     </view>
                                                     <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="hgU-0J-qEK">
-                                                        <rect key="frame" x="0.0" y="580" width="414" height="81"/>
+                                                        <rect key="frame" x="0.0" y="480" width="414" height="81"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="80" id="mbi-4D-3hO"/>
                                                         </constraints>
                                                         <segments>
                                                             <segment title="US"/>
-                                                            <segment title="Singapore"/>
+                                                            <segment title="China"/>
                                                             <segment title="Japan"/>
                                                         </segments>
                                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="selectedSegmentTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <connections>
+                                                            <action selector="didSegmentChange" destination="BYZ-38-t0r" eventType="valueChanged" id="NcO-qB-zkg"/>
+                                                        </connections>
                                                     </segmentedControl>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstItem="umm-Hd-w1a" firstAttribute="leading" secondItem="Cr5-Ob-QNn" secondAttribute="leading" id="3Ak-gZ-9w6"/>
                                                     <constraint firstAttribute="trailing" secondItem="hgU-0J-qEK" secondAttribute="trailing" id="6FC-Zg-l3f"/>
-                                                    <constraint firstAttribute="height" constant="660" id="DKt-lF-yih"/>
+                                                    <constraint firstAttribute="height" constant="560" id="DKt-lF-yih"/>
                                                     <constraint firstAttribute="trailing" secondItem="umm-Hd-w1a" secondAttribute="trailing" id="KtO-Y7-Jbr"/>
                                                     <constraint firstItem="hgU-0J-qEK" firstAttribute="leading" secondItem="Cr5-Ob-QNn" secondAttribute="leading" id="RF3-ra-0Vr"/>
                                                     <constraint firstItem="umm-Hd-w1a" firstAttribute="top" secondItem="Cr5-Ob-QNn" secondAttribute="top" id="TgN-ou-V75"/>
@@ -73,7 +76,7 @@
                                                 </constraints>
                                             </view>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalHuggingPriority="253" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="839-hc-iOX">
-                                                <rect key="frame" x="0.0" y="660" width="414" height="216"/>
+                                                <rect key="frame" x="0.0" y="560" width="414" height="216"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="216" id="mMW-0R-Fxc"/>
@@ -114,6 +117,7 @@
                             <constraint firstItem="9qh-Vj-W9F" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="vty-4n-ReO"/>
                         </constraints>
                     </view>
+                    <extendedEdge key="edgesForExtendedLayout"/>
                     <connections>
                         <outlet property="carouselView" destination="umm-Hd-w1a" id="uaS-2A-juz"/>
                         <outlet property="heightConstraint" destination="mMW-0R-Fxc" id="mWI-uV-Enh"/>
@@ -125,6 +129,68 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="126" y="62"/>
+        </scene>
+        <!--Article Detail View Controller-->
+        <scene sceneID="SH0-4d-H7n">
+            <objects>
+                <viewController storyboardIdentifier="ArticleDetailViewController" id="i20-M0-DG3" customClass="ArticleDetailViewController" customModule="DInDinnTest" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lGk-ni-NMR">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Feu-HV-KaN">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="HDg-Iu-pJS"/>
+                                </constraints>
+                            </imageView>
+                            <segmentedControl opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="btt-lv-t9e">
+                                <rect key="frame" x="0.0" y="255" width="414" height="81"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="80" id="Ogi-Lw-JKy"/>
+                                </constraints>
+                                <segments>
+                                    <segment title="Description"/>
+                                    <segment title="Source"/>
+                                    <segment title="Author"/>
+                                </segments>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="selectedSegmentTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <action selector="didSegmentChange" destination="BYZ-38-t0r" eventType="valueChanged" id="faY-nO-523"/>
+                                    <action selector="didSegmentChange" destination="i20-M0-DG3" eventType="valueChanged" id="tMp-ho-7fc"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4ty-8D-4sg">
+                                <rect key="frame" x="40" y="355" width="334" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="4ty-8D-4sg" secondAttribute="trailing" constant="20" id="9Hu-m4-fTe"/>
+                            <constraint firstAttribute="trailing" secondItem="Feu-HV-KaN" secondAttribute="trailing" id="GjB-zW-Wyy"/>
+                            <constraint firstItem="Feu-HV-KaN" firstAttribute="top" secondItem="lGk-ni-NMR" secondAttribute="top" id="Pan-sW-nIf"/>
+                            <constraint firstItem="4ty-8D-4sg" firstAttribute="top" secondItem="btt-lv-t9e" secondAttribute="bottom" constant="20" id="Ua3-CE-Rwi"/>
+                            <constraint firstItem="btt-lv-t9e" firstAttribute="leading" secondItem="lGk-ni-NMR" secondAttribute="leading" id="YaS-qr-bL3"/>
+                            <constraint firstItem="Feu-HV-KaN" firstAttribute="leading" secondItem="lGk-ni-NMR" secondAttribute="leading" id="Zjj-73-E4M"/>
+                            <constraint firstItem="btt-lv-t9e" firstAttribute="top" secondItem="Feu-HV-KaN" secondAttribute="bottom" constant="-45" id="lwV-EV-QAU"/>
+                            <constraint firstItem="4ty-8D-4sg" firstAttribute="leading" secondItem="lGk-ni-NMR" secondAttribute="leadingMargin" constant="20" id="uyu-St-CaV"/>
+                            <constraint firstAttribute="trailing" secondItem="btt-lv-t9e" secondAttribute="trailing" id="zEn-f5-Sy1"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Feu-HV-KaN" id="0lh-op-TEw"/>
+                        <outlet property="infoLabel" destination="4ty-8D-4sg" id="BKX-KH-MAW"/>
+                        <outlet property="segmentControl" destination="btt-lv-t9e" id="eeF-nt-OZ5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZD-Gs-fgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="972" y="62"/>
         </scene>
     </scenes>
     <resources>
